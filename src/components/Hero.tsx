@@ -9,13 +9,37 @@ import {
   MapPin,
   CheckCircle2,
   Zap,
-  Award
+  Award,
+  Copy,
+  Check
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<'bio' | 'specs' | 'merit'>('bio');
+  const [cardTilt, setCardTilt] = useState({ rx: 0, ry: 0 });
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rx = ((y / rect.height) - 0.5) * -10;
+    const ry = ((x / rect.width) - 0.5) * 10;
+    setCardTilt({ rx, ry });
+  };
+
+  const handleCardMouseLeave = () => {
+    setCardTilt({ rx: 0, ry: 0 });
+  };
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   return (
     <section id="home" className="relative pt-12 pb-20 sm:pt-20 sm:pb-32 overflow-hidden">
@@ -110,7 +134,15 @@ export default function Hero() {
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500/30 via-cyan-500/20 to-violet-500/30 blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000" />
 
               {/* Main Glass Card */}
-              <div className="relative rounded-3xl glass-panel p-6 sm:p-7 border border-white/[0.12] shadow-2xl">
+              <div
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
+                style={{
+                  transform: `perspective(1000px) rotateX(${cardTilt.rx}deg) rotateY(${cardTilt.ry}deg)`,
+                  transition: 'transform 0.15s ease-out',
+                }}
+                className="relative rounded-3xl glass-panel p-6 sm:p-7 border border-white/[0.12] shadow-2xl"
+              >
                 
                 {/* Header: Photo + Identity */}
                 <div className="flex items-center gap-4 pb-6 border-b border-white/[0.08]">
@@ -139,7 +171,7 @@ export default function Hero() {
                       IIIT Sri City, Andhra Pradesh
                     </p>
                     
-                    {/* Social links */}
+                    {/* Social links & Quick Copy */}
                     <div className="flex items-center gap-2 mt-2.5">
                       <a
                         href={personalInfo.github}
@@ -159,7 +191,14 @@ export default function Hero() {
                       >
                         <LinkedinIcon className="w-3.5 h-3.5 fill-current" />
                       </a>
-                      <span className="text-[11px] text-slate-500 font-mono pl-1">satyaeesa@gmail.com</span>
+                      <button
+                        onClick={handleCopyEmail}
+                        className="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] text-[10px] text-slate-300 font-mono transition"
+                        title="Click to copy email"
+                      >
+                        <span>{personalInfo.email}</span>
+                        {copiedEmail ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-slate-400" />}
+                      </button>
                     </div>
                   </div>
                 </div>

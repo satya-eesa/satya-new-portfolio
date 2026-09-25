@@ -132,33 +132,46 @@ export default function Projects() {
               </div>
 
               {/* Clickable Image Lightbox Thumbnails */}
-              <div className="space-y-3">
-                {(aluProject.images || []).map((shot, sIdx) => (
-                  <div
-                    key={sIdx}
-                    onClick={() => setActiveModalImage({ src: shot.src, caption: shot.caption })}
-                    className="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-indigo-400/50 bg-[#080d1a] cursor-pointer transition-all duration-300 hover:shadow-xl"
-                  >
-                    <div className="relative h-28 sm:h-32 w-full overflow-hidden">
-                      <Image
-                        src={shot.src}
-                        alt={shot.caption}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      <div className="absolute top-2 right-2 p-1.5 rounded-lg bg-black/60 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Maximize2 className="w-3.5 h-3.5" />
+              <div className="space-y-3.5">
+                {(aluProject.images || []).map((shot, sIdx) => {
+                  const windowTitles = ['gtkwave_sim.vcd — Timing Waveform', 'testbench_sim.log — Icarus Verilog', 'alu_8bit.v — VS Code Hierarchy'];
+                  return (
+                    <div
+                      key={sIdx}
+                      onClick={() => setActiveModalImage({ src: shot.src, caption: shot.caption })}
+                      className="group relative rounded-2xl overflow-hidden border border-white/[0.08] hover:border-indigo-400/50 bg-[#080d1a] cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5"
+                    >
+                      {/* Window Titlebar */}
+                      <div className="flex items-center justify-between px-3.5 py-2 bg-[#0a0e1c] border-b border-white/[0.06] text-[11px] font-mono">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80" />
+                        </div>
+                        <span className="text-slate-400 text-[10px] truncate max-w-[200px]">
+                          {windowTitles[sIdx] || shot.caption}
+                        </span>
+                        <span className="text-[10px] text-cyan-400 font-semibold group-hover:translate-x-0.5 transition-transform">
+                          Inspect &rarr;
+                        </span>
+                      </div>
+
+                      <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-black/40">
+                        <Image
+                          src={shot.src}
+                          alt={shot.caption}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] text-slate-300 font-mono">
+                          <span className="truncate pr-2">{shot.caption}</span>
+                          <Maximize2 className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                        </div>
                       </div>
                     </div>
-                    <div className="p-2.5 px-3 bg-[#0a0e1c] flex items-center justify-between text-xs">
-                      <span className="font-mono text-slate-300 truncate">{shot.caption}</span>
-                      <span className="text-[11px] text-cyan-400 font-semibold group-hover:translate-x-0.5 transition-transform">
-                        Zoom &rarr;
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

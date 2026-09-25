@@ -294,6 +294,35 @@ export default function AluSimulator() {
 
             </div>
 
+            {/* Active Synthesized Sub-Module Datapath Visualizer */}
+            <div>
+              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                <span>Active Synthesized Datapath Stage</span>
+                <span className="text-[11px] font-mono text-cyan-400">CLK: 100MHz SYNC</span>
+              </div>
+              <div className="grid grid-cols-4 gap-2 text-center font-mono">
+                {[
+                  { name: 'Adder/Sub/Mul', active: ['ADD', 'SUB', 'MUL'].includes(selectedOp.name), tag: 'ARITH' },
+                  { name: 'Bitwise Logic', active: ['AND', 'OR', 'XOR', 'NOT'].includes(selectedOp.name), tag: 'LOGIC' },
+                  { name: 'Barrel Shifter', active: ['SLL', 'SRL'].includes(selectedOp.name), tag: 'SHIFT' },
+                  { name: 'Flags Register', active: true, tag: 'STATUS' }
+                ].map((unit) => (
+                  <div
+                    key={unit.name}
+                    className={`p-2.5 rounded-xl border transition-all duration-300 ${
+                      unit.active
+                        ? 'bg-indigo-500/20 border-cyan-400/60 text-white shadow-[0_0_15px_rgba(6,182,212,0.25)]'
+                        : 'bg-white/[0.02] border-white/[0.05] text-slate-500 opacity-60'
+                    }`}
+                  >
+                    <span className="block text-[10px] text-slate-400 font-sans font-semibold">{unit.tag}</span>
+                    <span className="text-xs font-bold block truncate mt-0.5">{unit.name}</span>
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full mt-1.5 ${unit.active ? 'bg-emerald-400 animate-pulse' : 'bg-slate-700'}`} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Synthesizable Verilog Snippet Strip */}
             <div className="p-3.5 rounded-2xl bg-[#060912] border border-white/[0.08] flex items-center justify-between font-mono text-xs">
               <div className="flex items-center gap-2 overflow-x-auto text-slate-300">
