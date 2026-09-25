@@ -1,80 +1,83 @@
 'use client';
 
 import React from 'react';
-import { Trophy, GraduationCap, Award, Cpu, Binary, Rocket, CheckCircle2 } from 'lucide-react';
+import {
+  Trophy,
+  Award,
+  Sparkles,
+  CheckCircle2,
+  Cpu,
+  GraduationCap,
+  Target
+} from 'lucide-react';
 import { achievementsData } from '../data/portfolioData';
 
-const iconMap: Record<string, React.ElementType> = {
-  Trophy,
-  GraduationCap,
-  Award,
-  Cpu,
-  Binary,
-  Rocket,
-};
-
 export default function Achievements() {
-  return (
-    <section id="achievements" className="relative py-28 bg-[#04060c] overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 -left-48 w-96 h-96 rounded-full bg-violet-600/10 blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-48 w-96 h-96 rounded-full bg-cyan-600/10 blur-[170px] pointer-events-none" />
+  const getIcon = (title: string) => {
+    if (title.includes('JEE')) return <Trophy className="w-5 h-5 text-amber-400" />;
+    if (title.includes('994') || title.includes('587')) return <GraduationCap className="w-5 h-5 text-cyan-400" />;
+    if (title.includes('ALU')) return <Cpu className="w-5 h-5 text-indigo-400" />;
+    if (title.includes('HDLBits')) return <Target className="w-5 h-5 text-emerald-400" />;
+    return <Award className="w-5 h-5 text-violet-400" />;
+  };
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <section id="achievements" className="relative py-20 sm:py-32 bg-[#070a12]/90 overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-mono uppercase tracking-widest mb-3">
-            <Trophy className="w-3.5 h-3.5" />
-            <span>Honors &amp; Accomplishments</span>
+        <div className="flex flex-col items-center text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Honors &amp; Milestones</span>
           </div>
-          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
-            Key <span className="bg-gradient-to-r from-amber-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">Milestones</span>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            Competitive Merit &amp; <span className="bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-300 bg-clip-text text-transparent">Recognitions</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl font-mono text-xs sm:text-sm">
-            {'// COMPETITIVE MERIT • SCHOLASTIC MASTERY • HARDWARE DESIGN ACHIEVEMENTS'}
+          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+            Scholastic rankings, competitive exam qualifications, and technical milestones reflecting continuous excellence.
           </p>
         </div>
 
         {/* Achievements Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievementsData.map((item) => {
-            const IconComponent = iconMap[item.icon] || Trophy;
-
-            return (
-              <div
-                key={item.title}
-                className="group relative rounded-3xl p-7 cyber-card flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500/20 via-violet-500/10 to-transparent border border-cyan-500/30 flex items-center justify-center text-cyan-300 group-hover:scale-110 group-hover:text-amber-300 transition-all shadow-[0_0_15px_rgba(0,240,255,0.2)]">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <span className="px-3 py-1 rounded-lg text-[10px] font-mono uppercase tracking-wider bg-white/5 border border-white/10 text-cyan-300 font-bold">
-                      {item.badge}
-                    </span>
+          {achievementsData.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-3xl glass-panel p-6 sm:p-7 border border-white/[0.08] shadow-xl glass-panel-hover flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
+                    {getIcon(item.title)}
                   </div>
-
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-violet-400 font-bold block mb-1">
-                    {item.subtitle}
-                  </span>
-                  <h3 className="text-xl font-black text-white group-hover:text-cyan-300 transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    {item.description}
-                  </p>
+                  {item.category && (
+                    <span className="text-[10px] font-mono uppercase px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-slate-400">
+                      {item.category}
+                    </span>
+                  )}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-cyan-400 transition-colors">
-                  <span>VERIFIED RECORD</span>
+                <h3 className="font-heading font-bold text-lg text-white mb-2 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  {item.description}
+                </p>
+              </div>
+
+              {item.badge && (
+                <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+                  <span className="font-mono text-cyan-300 font-semibold">
+                    {item.badge}
+                  </span>
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 </div>
-              </div>
-            );
-          })}
+              )}
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );

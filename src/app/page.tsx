@@ -1,9 +1,7 @@
 import React from 'react';
-import WorkstationHeader from '../components/WorkstationHeader';
+import AmbientGlow from '../components/AmbientGlow';
 import Navbar from '../components/Navbar';
-import CyberBackground from '../components/CyberBackground';
 import Hero from '../components/Hero';
-import LogicAnalyzerBar from '../components/LogicAnalyzerBar';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
@@ -14,41 +12,35 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#030508] text-slate-100 selection:bg-cyan-500/35 selection:text-white">
-      {/* Dynamic Canvas Circuit PCB Background */}
-      <CyberBackground />
+    <main className="relative min-h-screen bg-[#07090e] text-slate-100 selection:bg-indigo-500/35 selection:text-white">
+      {/* Interactive Ambient Light & Cursor Glow */}
+      <AmbientGlow />
 
-      {/* Top Workstation Telemetry HUD Bar */}
-      <WorkstationHeader />
-
-      {/* Floating Glassmorphic Cyber Command Navbar */}
+      {/* Floating Modern Glass Navbar */}
       <Navbar />
 
-      {/* Hero Section: Silicon Command Console */}
+      {/* Charismatic Hero Section */}
       <Hero />
 
-      {/* Digital Logic Analyzer Bar */}
-      <LogicAnalyzerBar />
-
-      {/* Silicon Architect Dossier */}
+      {/* About: Silicon Architect Dossier & Bento Story */}
       <About />
 
-      {/* Technical Capabilities & Pipeline */}
+      {/* Technical Arsenal & RTL Pipeline */}
       <Skills />
 
-      {/* Hardware Projects: ALU Bench & Rover Mission Control */}
+      {/* Featured Hardware Projects with Embedded Silicon Lab */}
       <Projects />
 
-      {/* Academic Trajectory: Electronic Timing Bus */}
+      {/* Academic Trajectory & Scholastic Rigor */}
       <Education />
 
-      {/* Milestones & Honors */}
+      {/* Competitive Merit & Recognitions */}
       <Achievements />
 
-      {/* Cybernetic Uplink Transmission */}
+      {/* Contact & Collaboration Hub */}
       <Contact />
 
-      {/* System Footer */}
+      {/* Modern Footer */}
       <Footer />
     </main>
   );
