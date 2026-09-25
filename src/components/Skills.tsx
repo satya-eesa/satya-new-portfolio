@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Cpu, Terminal, Layers, ChevronRight, Zap, CheckCircle2, Sliders } from 'lucide-react';
+import { Cpu, Terminal, Layers } from 'lucide-react';
 import { skillCategories } from '../data/portfolioData';
 
 export default function Skills() {
@@ -30,7 +30,7 @@ export default function Skills() {
             Engineering &amp; <span className="bg-gradient-to-r from-violet-400 via-sky-300 to-cyan-400 bg-clip-text text-transparent">Hardware Stack</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl font-mono text-xs sm:text-sm">
-            // SPECIALIZED IN DIGITAL SYNTHESIS • TIMING CLOSURE • EMBEDDED REAL-TIME PROTOCOLS
+            {'//'} SPECIALIZED IN DIGITAL SYNTHESIS • TIMING CLOSURE • EMBEDDED REAL-TIME PROTOCOLS
           </p>
 
           {/* Category Filter Pills */}
@@ -130,7 +130,7 @@ export default function Skills() {
                 className="relative p-5 rounded-2xl bg-[#060914] border border-cyan-500/20 hover:border-cyan-400 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-mono font-black text-cyan-400">{p.step} //</span>
+                  <span className="text-xs font-mono font-black text-cyan-400">{p.step} {'//'}</span>
                   <h5 className="text-sm font-bold text-white mt-1.5">{p.title}</h5>
                   <p className="mt-2 text-xs text-slate-400 leading-relaxed">{p.desc}</p>
                 </div>

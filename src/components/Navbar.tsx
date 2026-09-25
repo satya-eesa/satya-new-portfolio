@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Cpu, Menu, X, FileText, Zap } from 'lucide-react';
+import { Cpu, Menu, X, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
@@ -70,7 +70,7 @@ export default function Navbar() {
                 </span>
               </span>
               <span className="text-[9px] font-mono tracking-widest text-cyan-400/80 uppercase -mt-0.5">
-                // VLSI • RTL ARCHITECT
+                {'//'} VLSI • RTL ARCHITECT
               </span>
             </div>
           </a>
@@ -163,7 +163,7 @@ export default function Navbar() {
                 className="flex items-center justify-between px-4 py-3 text-sm font-semibold rounded-xl text-slate-200 hover:text-cyan-300 hover:bg-cyan-500/15 transition"
               >
                 <span>{link.name}</span>
-                <span className="text-xs text-cyan-400/60">// VIEW</span>
+                <span className="text-xs text-cyan-400/60">{'//'} VIEW</span>
               </a>
             ))}
             <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">

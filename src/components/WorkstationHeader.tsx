@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Activity, Radio, Cpu, Zap } from 'lucide-react';
+import { Activity, Radio, Cpu } from 'lucide-react';
 
 export default function WorkstationHeader() {
   const [time, setTime] = useState<string>('');
