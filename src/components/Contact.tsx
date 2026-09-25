@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, MapPin, Copy, Check, Send, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Copy, Check, Send, Sparkles, Terminal } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
@@ -15,9 +16,22 @@ export default function Contact() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleCopyEmail = () => {
+  const handleCopyEmail = (e: React.MouseEvent) => {
     navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
+
+    // Confetti burst
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    confetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { x, y },
+      colors: ['#00f0ff', '#8b5cf6', '#10b981', '#f59e0b'],
+    });
+
     setTimeout(() => setCopied(false), 2500);
   };
 
@@ -25,7 +39,6 @@ export default function Contact() {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
 
-    // Create mailto link to open email client seamlessly
     const mailtoUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
       `[Portfolio Inquiry] ${formState.subject} - from ${formState.name}`
     )}&body=${encodeURIComponent(
@@ -34,12 +47,18 @@ export default function Contact() {
 
     window.open(mailtoUrl, '_blank');
     setFormSubmitted(true);
+
+    confetti({
+      particleCount: 70,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
   };
 
   return (
-    <section id="contact" className="relative py-28 bg-[#06070a] overflow-hidden">
-      <div className="absolute inset-0 bg-semiconductor-grid opacity-20 pointer-events-none" />
-      <div className="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-cyan-600/10 blur-[150px] pointer-events-none" />
+    <section id="contact" className="relative py-28 bg-[#030508] overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-cyan-600/10 blur-[170px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -48,31 +67,31 @@ export default function Contact() {
             <Mail className="w-3.5 h-3.5" />
             <span>Initiate Transmission</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Let&apos;s <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">Connect</span>
+          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+            Let&apos;s <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400 bg-clip-text text-transparent">Connect</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl">
-            Currently open to VLSI &amp; RTL design internships, research collaborations, hardware projects, and engineering discussions.
+          <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl font-mono text-xs sm:text-sm">
+            {'// OPEN TO VLSI / RTL INTERNSHIPS • RESEARCH COLLABORATIONS • HARDWARE PROJECTS'}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Contact Info Cards */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* Email Card with Copy Trigger */}
-            <div className="p-6 rounded-2xl bg-[#0b0e1b]/80 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 shadow-xl">
+            {/* Email Card with Copy Trigger & Confetti */}
+            <div className="p-6 sm:p-7 rounded-3xl cyber-card border border-cyan-500/30">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-bold">
                       Direct Email
                     </span>
                     <a
                       href={`mailto:${personalInfo.email}`}
-                      className="text-base font-bold text-white hover:text-cyan-300 transition-colors"
+                      className="text-base font-bold text-white hover:text-cyan-300 transition-colors font-mono"
                     >
                       {personalInfo.email}
                     </a>
@@ -81,13 +100,13 @@ export default function Contact() {
 
                 <button
                   onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-cyan-300 transition"
-                  title="Copy email to clipboard"
+                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-xs font-mono font-bold text-cyan-300 transition shadow-sm"
+                  title="Click to copy email address"
                 >
                   {copied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400 font-semibold">Copied!</span>
+                      <span className="text-emerald-400">Copied!</span>
                     </>
                   ) : (
                     <>
@@ -104,22 +123,24 @@ export default function Contact() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-[#0b0e1b]/80 border border-white/10 hover:border-violet-500/40 hover:bg-[#0e1224] transition-all duration-300 shadow-xl flex items-center justify-between"
+              className="group p-6 sm:p-7 rounded-3xl cyber-card flex items-center justify-between"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-violet-500/20 border border-violet-500/40 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(168,85,247,0.25)]">
                   <GithubIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-bold">
                     Source Code &amp; Repositories
                   </span>
-                  <div className="text-base font-bold text-white group-hover:text-violet-300 transition-colors">
+                  <div className="text-base font-bold text-white group-hover:text-violet-300 transition-colors font-mono">
                     github.com/satya-eesa
                   </div>
                 </div>
               </div>
-              <span className="text-xs font-mono text-slate-400 group-hover:text-white">Visit →</span>
+              <span className="text-xs font-mono text-cyan-400 group-hover:translate-x-1 transition-transform">
+                Visit &rarr;
+              </span>
             </a>
 
             {/* LinkedIn Card */}
@@ -127,78 +148,78 @@ export default function Contact() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-[#0b0e1b]/80 border border-white/10 hover:border-blue-500/40 hover:bg-[#0e1224] transition-all duration-300 shadow-xl flex items-center justify-between"
+              className="group p-6 sm:p-7 rounded-3xl cyber-card flex items-center justify-between"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-sky-500/20 border border-sky-500/40 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(14,165,233,0.25)]">
                   <LinkedinIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-bold">
                     Professional Network
                   </span>
-                  <div className="text-base font-bold text-white group-hover:text-blue-300 transition-colors">
+                  <div className="text-base font-bold text-white group-hover:text-sky-300 transition-colors font-mono">
                     linkedin.com/in/satya-eesa
                   </div>
                 </div>
               </div>
-              <span className="text-xs font-mono text-slate-400 group-hover:text-white">Connect →</span>
+              <span className="text-xs font-mono text-cyan-400 group-hover:translate-x-1 transition-transform">
+                Connect &rarr;
+              </span>
             </a>
 
             {/* Location Card */}
-            <div className="p-6 rounded-2xl bg-[#0b0e1b]/80 border border-white/10 shadow-xl flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="p-6 sm:p-7 rounded-3xl cyber-card flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.25)]">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-bold">
                   Location &amp; Base
                 </span>
                 <div className="text-base font-bold text-white">Andhra Pradesh, India</div>
-                <div className="text-xs text-slate-400">IIIT Sri City Campus</div>
+                <div className="text-xs font-mono text-slate-400">IIIT Sri City Campus (13.55°N, 80.02°E)</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Message Inquiry Form */}
+          {/* Right Column: Terminal Transmission Console */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl p-7 sm:p-9 bg-[#0a0d18]/90 border border-white/10 backdrop-blur-xl shadow-2xl">
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                <div className="w-9 h-9 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <MessageSquare className="w-4 h-4" />
+            <div className="rounded-3xl p-7 sm:p-9 cyber-card border-2 border-cyan-500/40 shadow-2xl">
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10 font-mono text-xs">
+                <div className="flex items-center gap-2 text-cyan-300 font-bold">
+                  <Terminal className="w-4 h-4 text-cyan-400" />
+                  <span>COMMUNICATION TERMINAL // INQUIRY_UPLINK</span>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white">Send a Message</h3>
-                  <p className="text-xs text-slate-400">
-                    Reach out directly for internships, hardware discussions, or inquiries
-                  </p>
-                </div>
+                <span className="text-emerald-400 text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30">
+                  PORT: 443_SSL
+                </span>
               </div>
 
               {formSubmitted ? (
-                <div className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center animate-fadeIn">
-                  <Sparkles className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
-                  <h4 className="text-lg font-bold text-white">Message Ready to Send!</h4>
-                  <p className="text-sm text-slate-300 mt-1 max-w-md mx-auto">
-                    Your email client has been prepared with your inquiry. If it did not open automatically, feel free to email directly at{' '}
-                    <strong className="text-cyan-300">{personalInfo.email}</strong>.
+                <div className="p-8 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/40 text-center animate-fadeIn">
+                  <Sparkles className="w-10 h-10 text-emerald-400 mx-auto mb-3" />
+                  <h4 className="text-2xl font-black text-white">Transmission Ready!</h4>
+                  <p className="text-sm text-slate-300 mt-2 max-w-md mx-auto leading-relaxed">
+                    Your mail client has been prepared with your inquiry. You can also write directly to{' '}
+                    <strong className="text-cyan-300 font-mono">{personalInfo.email}</strong>.
                   </p>
                   <button
                     onClick={() => {
                       setFormSubmitted(false);
                       setFormState({ name: '', email: '', subject: 'VLSI / RTL Internship Opportunity', message: '' });
                     }}
-                    className="mt-5 px-5 py-2 rounded-xl text-xs font-mono font-semibold bg-white/10 hover:bg-white/20 text-white transition"
+                    className="mt-6 px-6 py-2.5 rounded-xl text-xs font-mono font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition"
                   >
-                    Send Another Note
+                    Transmit Another Note
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">
-                        Your Name
+                      <label className="block text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-bold">
+                        {'// Your Name'}
                       </label>
                       <input
                         type="text"
@@ -206,32 +227,32 @@ export default function Contact() {
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         placeholder="Dr. / Eng. Jane Doe"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-white/[0.06] transition"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-black/90 transition font-mono"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">
-                        Email Address
+                      <label className="block text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-bold">
+                        {'// Email Address'}
                       </label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="jane.doe@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-white/[0.06] transition"
+                        placeholder="jane.doe@semiconductor.com"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-black/90 transition font-mono"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">
-                      Subject / Topic
+                    <label className="block text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-bold">
+                      {'// Subject / Inquiry Type'}
                     </label>
                     <select
                       value={formState.subject}
                       onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#090c17] border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition"
+                      className="w-full px-4 py-3.5 rounded-xl bg-black/80 border border-white/15 text-white text-sm focus:outline-none focus:border-cyan-400 transition font-mono"
                     >
                       <option value="VLSI / RTL Internship Opportunity">VLSI / RTL Internship Opportunity</option>
                       <option value="Hardware / Embedded Project Collaboration">Hardware / Embedded Project Collaboration</option>
@@ -241,25 +262,25 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">
-                      Message
+                    <label className="block text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2 font-bold">
+                      {'// Message Content'}
                     </label>
                     <textarea
                       required
                       rows={5}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Hi Satya, I came across your RTL ALU project and would like to discuss..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-white/[0.06] transition resize-none"
+                      placeholder="Hi Satya, I was impressed by your 8-bit RTL ALU and GTKWave testbenches..."
+                      className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:bg-black/90 transition resize-none font-mono"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-violet-600 to-indigo-600 text-white font-bold text-sm shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all hover:scale-[1.01]"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-violet-600 text-white font-mono font-bold text-sm shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] transition-all hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Transmit Message</span>
+                    <span>Transmit Message // Send</span>
                   </button>
                 </form>
               )}
