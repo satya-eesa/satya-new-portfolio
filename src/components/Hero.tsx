@@ -55,7 +55,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 dark:bg-emerald-400" />
               </span>
-              <span>Hardware, DSA &amp; Modern Web Engineer</span>
+              <span>Hardware Engineer • DSA &amp; Exploring Web</span>
               <span className="text-slate-400 dark:text-slate-500">•</span>
               <span className="text-slate-600 dark:text-slate-400 font-mono text-[11px]">IIIT Sri City</span>
             </div>
@@ -64,7 +64,7 @@ export default function Hero() {
             <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-6xl text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-6">
               Hi, I&apos;m <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Satya Eesa</span>
               <span className="block mt-2 text-3xl sm:text-5xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200">
-                Architecting from Silicon Logic &amp; Algorithms to Modern Web
+                Digital Silicon Logic, C++ Algorithms &amp; Exploring Web
               </span>
             </h1>
 
@@ -72,7 +72,7 @@ export default function Hero() {
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300/90 leading-relaxed font-normal max-w-2xl mb-8">
               Electronics &amp; Communication Engineering undergraduate at the{' '}
               <strong className="text-slate-900 dark:text-white font-semibold">Indian Institute of Information Technology, Sri City</strong>.
-              I engineer across the entire compute stack—from synthesizable Verilog RTL and high-performance Data Structures &amp; Algorithms in C++, to responsive, modern web platforms.
+              Specializing in digital VLSI &amp; synthesizable Verilog design, strengthening core problem-solving fundamentals in C++, and enthusiastically stepping into modern web development.
             </p>
 
             {/* Action Buttons */}
@@ -115,12 +115,12 @@ export default function Hero() {
                 <span className="text-xs text-slate-500 dark:text-slate-400">8-Bit ALU in Verilog</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg text-emerald-600 dark:text-emerald-400">DSA &amp; C++</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">Algorithmic Rigor</span>
+                <span className="font-heading font-bold text-lg text-emerald-600 dark:text-emerald-400">C++ &amp; DSA</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">Arrays, Sorting &amp; STL</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg text-cyan-600 dark:text-cyan-400">Modern Web</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">Next.js 15 &amp; TS</span>
+                <span className="font-heading font-bold text-lg text-cyan-600 dark:text-cyan-400">Web &amp; IoT</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">Foundations &amp; Embedded</span>
               </div>
             </div>
 
@@ -163,7 +163,7 @@ export default function Hero() {
                   <div className="flex flex-col">
                     <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>Silicon • Algorithms • Web</span>
+                      <span>Silicon • C++ DSA • Exploring Web</span>
                     </div>
                     <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">Satya Eesa</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-0.5">
@@ -223,7 +223,7 @@ export default function Hero() {
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
-                    Tech Stack
+                    Known Skills
                   </button>
                   <button
                     onClick={() => setActiveTab('merit')}
@@ -241,7 +241,7 @@ export default function Hero() {
                 {activeTab === 'bio' && (
                   <div className="space-y-3 animate-in fade-in duration-200">
                     <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                      Passionate about end-to-end technical engineering: transforming computational problems into high-performance C++ algorithms, synthesizable Verilog RTL hardware, and responsive modern web platforms.
+                      Passionate about digital VLSI &amp; synthesizable Verilog design, practicing core Data Structures &amp; Algorithms in C++, and enthusiastically stepping into modern web development.
                     </p>
                     <div className="grid grid-cols-2 gap-2 pt-1 font-mono text-[11px]">
                       <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
@@ -249,8 +249,8 @@ export default function Hero() {
                         <span className="text-cyan-600 dark:text-cyan-300 font-bold">Verilog &amp; Vivado</span>
                       </div>
                       <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
-                        <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-sans">Algorithms &amp; Web</span>
-                        <span className="text-indigo-600 dark:text-indigo-300 font-bold">C++ &amp; Next.js</span>
+                        <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-sans">DSA &amp; Web</span>
+                        <span className="text-indigo-600 dark:text-indigo-300 font-bold">C++ &amp; Web Basics</span>
                       </div>
                     </div>
                   </div>
@@ -264,16 +264,16 @@ export default function Hero() {
                       <span className="text-slate-900 dark:text-white font-semibold">8-Bit ALU • Vivado</span>
                     </div>
                     <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
-                      <span className="text-slate-500 dark:text-slate-400">DSA &amp; Comp</span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">C++ STL • DP • Trees</span>
+                      <span className="text-slate-500 dark:text-slate-400">C++ &amp; DSA</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">Arrays, Sorting &amp; STL</span>
                     </div>
                     <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
-                      <span className="text-slate-500 dark:text-slate-400">Modern Web</span>
-                      <span className="text-cyan-600 dark:text-cyan-300 font-semibold">Next.js 15 • React 19</span>
+                      <span className="text-slate-500 dark:text-slate-400">Embedded / IoT</span>
+                      <span className="text-cyan-600 dark:text-cyan-300 font-semibold">RPi &amp; ESP32 Dual-Core</span>
                     </div>
                     <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
-                      <span className="text-slate-500 dark:text-slate-400">IoT &amp; Robotics</span>
-                      <span className="text-indigo-600 dark:text-indigo-300 font-semibold">RPi + ESP32 Dual-Core</span>
+                      <span className="text-slate-500 dark:text-slate-400">Web Journey</span>
+                      <span className="text-indigo-600 dark:text-indigo-300 font-semibold">HTML, CSS &amp; JS Basics</span>
                     </div>
                   </div>
                 )}

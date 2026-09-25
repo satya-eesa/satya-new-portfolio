@@ -24,10 +24,10 @@ export default function About() {
             <span>Engineer Profile</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Engineering from Silicon &amp; <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Algorithms to Modern Web</span>
+            Engineering from Silicon Logic to <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Software Foundations</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            A multi-disciplinary engineer connecting digital VLSI hardware, computational Data Structures &amp; Algorithms in C++, and modern full-stack web platforms at IIIT Sri City.
+            Electronics &amp; Communication Engineering undergraduate at IIIT Sri City focused on digital hardware, C++ problem-solving foundations, and exploring web technologies.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">The Engineering Journey</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">From silicon gates &amp; algorithms to scalable web systems</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">From silicon circuits and C++ logic to expanding web horizons</p>
                 </div>
               </div>
 
@@ -51,10 +51,10 @@ export default function About() {
                 <p>
                   I am an Electronics &amp; Communication Engineering undergraduate at the{' '}
                   <strong className="text-slate-900 dark:text-white font-semibold">Indian Institute of Information Technology, Sri City (IIIT Sri City)</strong>.
-                  My philosophy bridges the physical and virtual compute planes: understanding how hardware actually computes at the silicon register layer, how algorithms optimize memory and runtime complexity in C++, and how modern web systems deliver intuitive, responsive digital experiences.
+                  My engineering journey is rooted in digital logic and hardware microarchitectures—designing synthesizable Verilog modules, analyzing signal waveforms, and interfacing microcontrollers with physical systems.
                 </p>
                 <p>
-                  Whether engineering an 8-bit Arithmetic Logic Unit in synthesizable Verilog HDL, solving complex algorithmic graph and dynamic programming challenges, or building modern interactive web applications with Next.js and TypeScript, I thrive at the intersections of speed, precision, and architectural elegance.
+                  Alongside hardware, I am actively building my problem-solving discipline in C++, focusing on core Data Structures and Algorithms (arrays, strings, searching, sorting, stacks, and complexity analysis). Simultaneously, I am taking my first enthusiastic steps into modern web development, eager to learn how software interfaces connect with computational logic.
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function About() {
             <div className="pt-6 mt-6 border-t border-slate-200 dark:border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 font-mono">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
-                <span>Triad: Digital RTL • C++ DSA • Next.js &amp; TS</span>
+                <span>Focus: Digital RTL • C++ Foundations • Exploring Web</span>
               </div>
               <a
                 href="#silicon-lab"
@@ -129,9 +129,9 @@ export default function About() {
                 <div className="p-2 w-fit rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
                   <Terminal className="w-4 h-4" />
                 </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Algorithms &amp; DSA (C++)</h5>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Core DSA in C++</h5>
                 <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Data structures, graph algorithms, dynamic programming, and asymptotic runtime optimization.
+                  Array manipulations, searching &amp; sorting, two pointers, recursion, and C++ STL problem solving.
                 </p>
               </div>
 
@@ -139,9 +139,9 @@ export default function About() {
                 <div className="p-2 w-fit rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 mb-3">
                   <Layers className="w-4 h-4" />
                 </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Modern Web Architecture</h5>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Web Dev (Foundations)</h5>
                 <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Next.js 15, React 19, TypeScript, responsive Tailwind interfaces, and interactive web tools.
+                  Learning modern front-end fundamentals, HTML5, CSS3, JavaScript, and responsive design.
                 </p>
               </div>
 

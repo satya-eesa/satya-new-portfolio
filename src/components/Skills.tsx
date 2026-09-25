@@ -47,7 +47,7 @@ export default function Skills() {
             Specialized Across <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Silicon, Algorithms &amp; Web</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            A multi-disciplinary skill stack connecting gate-level digital hardware, high-efficiency algorithmic problem solving in C++, modern full-stack web platforms, and embedded systems.
+            A transparent matrix of digital hardware expertise, core C++ problem-solving foundations, and early-stage web development tools.
           </p>
 
           {/* Category Filter Pills */}
@@ -117,24 +117,24 @@ export default function Skills() {
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">
                 <Layers className="w-4 h-4" />
-                <span>Multi-Tier Architecture</span>
+                <span>Engineering Growth Flow</span>
               </div>
               <h4 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 dark:text-white">
-                The Silicon-to-Software Engineering Flow
+                From Silicon Circuits to Software Learning
               </h4>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
-              Integrated methodology spanning gate-level digital hardware, algorithmic logic, and modern web platforms.
+              Grounded methodology spanning gate-level digital hardware, foundational algorithms, and web tools.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {[
               { step: '01', title: 'Silicon & RTL', desc: 'Datapath architecture, finite state machines & Verilog HDL' },
-              { step: '02', title: 'Algorithmic Rigor', desc: 'Data Structures & Algorithms, C++ STL & asymptotic optimization' },
+              { step: '02', title: 'DSA Foundations', desc: 'Core problem solving in C++, arrays, sorting & Big-O analysis' },
               { step: '03', title: 'Embedded Systems', desc: 'Dual-core MCU firmware, sensor buses & real-time actuation' },
-              { step: '04', title: 'Modern Web Core', desc: 'Next.js 15, React 19, TypeScript & responsive interfaces' },
-              { step: '05', title: 'Interactive Platforms', desc: 'In-browser hardware simulation, telemetry & deployed systems' },
+              { step: '04', title: 'Web Foundations', desc: 'HTML5, CSS3, JavaScript basics & responsive layouts' },
+              { step: '05', title: 'Continuous Growth', desc: 'Progressively expanding algorithmic depth & web projects' },
             ].map((p, idx) => (
               <div
                 key={p.step}

@@ -31,9 +31,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://satya-vlsi-portfolio.vercel.app"),
-  title: "Satya Eesa | Hardware, DSA & Software Engineer Portfolio",
+  title: "Satya Eesa | Hardware Engineer, DSA & Aspiring Web Developer",
   description:
-    "Official portfolio of Satya Eesa, Electronics & Communication Engineering undergraduate at IIIT Sri City. Specializing in Digital VLSI & RTL Design, C++ Data Structures & Algorithms (DSA), and Modern Full-Stack Web Development.",
+    "Official portfolio of Satya Eesa, Electronics & Communication Engineering undergraduate at IIIT Sri City. Specializing in Digital VLSI & RTL Design, C++ Data Structures & Algorithms (DSA), and exploring modern web development.",
   keywords: [
     "Satya Eesa",
     "Hardware Engineer",
@@ -43,21 +43,18 @@ export const metadata: Metadata = {
     "Data Structures and Algorithms",
     "DSA",
     "C++ Problem Solving",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Full-Stack Web Development",
+    "Embedded Systems",
     "IIIT Sri City",
     "Vivado",
-    "GTKWave"
+    "GTKWave",
+    "Web Development Foundations"
   ],
   authors: [{ name: "Satya Eesa", url: "https://satya-vlsi-portfolio.vercel.app" }],
   creator: "Satya Eesa",
   openGraph: {
-    title: "Satya Eesa | Hardware, DSA & Software Engineer Portfolio",
+    title: "Satya Eesa | Hardware Engineer, DSA & Aspiring Web Developer",
     description:
-      "Undergraduate engineer at IIIT Sri City bridging digital silicon (Verilog RTL), algorithmic problem solving (C++ DSA), and modern full-stack web applications.",
+      "Undergraduate engineer at IIIT Sri City specializing in digital VLSI & RTL design, C++ algorithmic problem-solving foundations, and exploring web development.",
     url: "https://satya-vlsi-portfolio.vercel.app",
     siteName: "Satya Eesa Portfolio",
     images: [
