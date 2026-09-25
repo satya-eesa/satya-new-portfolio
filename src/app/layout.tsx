@@ -72,17 +72,21 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from "../components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans bg-[#080a11] text-slate-100 antialiased selection:bg-indigo-500/30 selection:text-white`}
+        className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans bg-slate-50 dark:bg-[#07090e] text-slate-900 dark:text-slate-100 antialiased selection:bg-indigo-500/30 selection:text-white transition-colors duration-300`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

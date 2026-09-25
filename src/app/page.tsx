@@ -12,7 +12,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#07090e] text-slate-100 selection:bg-indigo-500/35 selection:text-white">
+    <main className="relative min-h-screen bg-slate-50 dark:bg-[#07090e] text-slate-900 dark:text-slate-100 selection:bg-indigo-500/35 selection:text-white transition-colors duration-300">
       {/* Interactive Ambient Light & Cursor Glow */}
       <AmbientGlow />
 

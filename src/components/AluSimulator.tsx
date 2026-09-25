@@ -119,34 +119,34 @@ export default function AluSimulator() {
   };
 
   return (
-    <div id="silicon-lab" className="rounded-3xl glass-panel p-6 sm:p-9 border border-white/[0.12] shadow-2xl relative overflow-hidden">
+    <div id="silicon-lab" className="rounded-3xl glass-panel p-6 sm:p-9 shadow-2xl relative overflow-hidden">
       
       {/* Decorative ambient top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-indigo-500/15 via-cyan-500/5 to-transparent blur-2xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-indigo-500/10 via-cyan-500/5 to-transparent blur-2xl pointer-events-none" />
 
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/[0.08] relative z-10">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/[0.08] relative z-10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-2">
             <Cpu className="w-3.5 h-3.5" />
             <span>Interactive Silicon Lab</span>
           </div>
-          <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+          <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
             8-Bit Modular RTL ALU Simulator
           </h3>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
             Experience the real-time Verilog datapath, status flags, and logic synthesis in action.
           </p>
         </div>
 
         {/* View mode toggle */}
-        <div className="flex items-center gap-1 p-1 rounded-xl bg-black/40 border border-white/[0.08] text-xs font-medium">
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-black/40 border border-slate-200 dark:border-white/[0.08] text-xs font-medium">
           <button
             onClick={() => setShowCodeTab('visual')}
             className={`px-3 py-1.5 rounded-lg transition ${
               showCodeTab === 'visual'
                 ? 'bg-indigo-600 text-white shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Visual Lab
@@ -156,7 +156,7 @@ export default function AluSimulator() {
             className={`px-3 py-1.5 rounded-lg transition ${
               showCodeTab === 'verilog'
                 ? 'bg-indigo-600 text-white shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Verilog Code
@@ -167,8 +167,8 @@ export default function AluSimulator() {
       {/* Quick Test Presets */}
       <div className="pt-6 relative z-10">
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
+          <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
             Quick Test Presets:
           </span>
         </div>
@@ -181,7 +181,7 @@ export default function AluSimulator() {
                 setValB(preset.b);
                 setSelectedOpIndex(preset.opIndex);
               }}
-              className="px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-indigo-400/40 text-xs font-medium text-slate-300 hover:text-white transition"
+              className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] hover:border-indigo-400/40 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition shadow-sm"
             >
               {preset.label}
             </button>
@@ -197,7 +197,7 @@ export default function AluSimulator() {
             
             {/* Opcode Selector Buttons */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2.5">
                 Select ALU Opcode ({selectedOp.name}: {selectedOp.desc})
               </label>
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
@@ -210,7 +210,7 @@ export default function AluSimulator() {
                       className={`p-2.5 rounded-xl text-xs font-semibold flex flex-col items-center justify-center gap-1 transition-all duration-200 border ${
                         isSelected
                           ? 'bg-gradient-to-br from-indigo-600 to-cyan-600 text-white border-cyan-400 shadow-lg shadow-indigo-500/25 scale-[1.02]'
-                          : 'bg-white/[0.03] text-slate-300 border-white/[0.06] hover:bg-white/[0.07] hover:text-white'
+                          : 'bg-slate-50 dark:bg-white/[0.03] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/[0.06] hover:bg-slate-100 dark:hover:bg-white/[0.07] hover:text-slate-900 dark:hover:text-white shadow-sm'
                       }`}
                     >
                       <span className="text-base font-bold font-mono">{op.symbol}</span>
@@ -225,15 +225,15 @@ export default function AluSimulator() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Operand A */}
-              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
                 <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="font-semibold text-slate-300">Operand A [7:0]</span>
-                  <span className="font-mono text-cyan-300 font-bold">{toHex2(a)}</span>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Operand A [7:0]</span>
+                  <span className="font-mono text-cyan-600 dark:text-cyan-300 font-bold">{toHex2(a)}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <button
                     onClick={() => setValA(Math.max(0, a - 1))}
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white font-bold flex items-center justify-center transition"
+                    className="w-8 h-8 rounded-lg bg-slate-200/80 dark:bg-white/[0.06] hover:bg-slate-300 dark:hover:bg-white/[0.12] text-slate-900 dark:text-white font-bold flex items-center justify-center transition"
                   >
                     -
                   </button>
@@ -243,31 +243,31 @@ export default function AluSimulator() {
                     max="255"
                     value={a}
                     onChange={(e) => setValA(Number(e.target.value))}
-                    className="flex-1 accent-indigo-500 cursor-pointer"
+                    className="flex-1 accent-indigo-600 cursor-pointer"
                   />
                   <button
                     onClick={() => setValA(Math.min(255, a + 1))}
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white font-bold flex items-center justify-center transition"
+                    className="w-8 h-8 rounded-lg bg-slate-200/80 dark:bg-white/[0.06] hover:bg-slate-300 dark:hover:bg-white/[0.12] text-slate-900 dark:text-white font-bold flex items-center justify-center transition"
                   >
                     +
                   </button>
                 </div>
-                <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono">
-                  <span>Dec: <strong className="text-white">{a}</strong></span>
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                  <span>Dec: <strong className="text-slate-900 dark:text-white">{a}</strong></span>
                   <span>Bin: {toBinary8(a)}</span>
                 </div>
               </div>
 
               {/* Operand B */}
-              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06]">
                 <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="font-semibold text-slate-300">Operand B [7:0]</span>
-                  <span className="font-mono text-indigo-300 font-bold">{toHex2(b)}</span>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">Operand B [7:0]</span>
+                  <span className="font-mono text-indigo-600 dark:text-indigo-300 font-bold">{toHex2(b)}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <button
                     onClick={() => setValB(Math.max(0, b - 1))}
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white font-bold flex items-center justify-center transition"
+                    className="w-8 h-8 rounded-lg bg-slate-200/80 dark:bg-white/[0.06] hover:bg-slate-300 dark:hover:bg-white/[0.12] text-slate-900 dark:text-white font-bold flex items-center justify-center transition"
                   >
                     -
                   </button>
@@ -277,17 +277,17 @@ export default function AluSimulator() {
                     max="255"
                     value={b}
                     onChange={(e) => setValB(Number(e.target.value))}
-                    className="flex-1 accent-indigo-500 cursor-pointer"
+                    className="flex-1 accent-indigo-600 cursor-pointer"
                   />
                   <button
                     onClick={() => setValB(Math.min(255, b + 1))}
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white font-bold flex items-center justify-center transition"
+                    className="w-8 h-8 rounded-lg bg-slate-200/80 dark:bg-white/[0.06] hover:bg-slate-300 dark:hover:bg-white/[0.12] text-slate-900 dark:text-white font-bold flex items-center justify-center transition"
                   >
                     +
                   </button>
                 </div>
-                <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono">
-                  <span>Dec: <strong className="text-white">{b}</strong></span>
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                  <span>Dec: <strong className="text-slate-900 dark:text-white">{b}</strong></span>
                   <span>Bin: {toBinary8(b)}</span>
                 </div>
               </div>
@@ -296,9 +296,9 @@ export default function AluSimulator() {
 
             {/* Active Synthesized Sub-Module Datapath Visualizer */}
             <div>
-              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 <span>Active Synthesized Datapath Stage</span>
-                <span className="text-[11px] font-mono text-cyan-400">CLK: 100MHz SYNC</span>
+                <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400">CLK: 100MHz SYNC</span>
               </div>
               <div className="grid grid-cols-4 gap-2 text-center font-mono">
                 {[
@@ -311,30 +311,30 @@ export default function AluSimulator() {
                     key={unit.name}
                     className={`p-2.5 rounded-xl border transition-all duration-300 ${
                       unit.active
-                        ? 'bg-indigo-500/20 border-cyan-400/60 text-white shadow-[0_0_15px_rgba(6,182,212,0.25)]'
-                        : 'bg-white/[0.02] border-white/[0.05] text-slate-500 opacity-60'
+                        ? 'bg-indigo-50 dark:bg-indigo-500/20 border-indigo-400 dark:border-cyan-400/60 text-slate-900 dark:text-white shadow-sm dark:shadow-[0_0_15px_rgba(6,182,212,0.25)]'
+                        : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.05] text-slate-400 dark:text-slate-500 opacity-60'
                     }`}
                   >
-                    <span className="block text-[10px] text-slate-400 font-sans font-semibold">{unit.tag}</span>
+                    <span className="block text-[10px] text-slate-500 dark:text-slate-400 font-sans font-semibold">{unit.tag}</span>
                     <span className="text-xs font-bold block truncate mt-0.5">{unit.name}</span>
-                    <span className={`inline-block w-1.5 h-1.5 rounded-full mt-1.5 ${unit.active ? 'bg-emerald-400 animate-pulse' : 'bg-slate-700'}`} />
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full mt-1.5 ${unit.active ? 'bg-emerald-500 dark:bg-emerald-400 animate-pulse' : 'bg-slate-300 dark:bg-slate-700'}`} />
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Synthesizable Verilog Snippet Strip */}
-            <div className="p-3.5 rounded-2xl bg-[#060912] border border-white/[0.08] flex items-center justify-between font-mono text-xs">
-              <div className="flex items-center gap-2 overflow-x-auto text-slate-300">
-                <span className="text-indigo-400 font-bold">Verilog RTL:</span>
-                <code className="text-cyan-300">{selectedOp.verilog}</code>
+            <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-[#060912] border border-slate-200 dark:border-white/[0.08] flex items-center justify-between font-mono text-xs">
+              <div className="flex items-center gap-2 overflow-x-auto text-slate-800 dark:text-slate-300">
+                <span className="text-indigo-600 dark:text-indigo-400 font-bold">Verilog RTL:</span>
+                <code className="text-cyan-700 dark:text-cyan-300 font-semibold">{selectedOp.verilog}</code>
               </div>
               <button
                 onClick={handleCopyCode}
-                className="p-1.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-slate-300 hover:text-white transition flex-shrink-0 ml-2"
+                className="p-1.5 rounded-lg bg-slate-200 dark:bg-white/[0.06] hover:bg-slate-300 dark:hover:bg-white/[0.12] text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition flex-shrink-0 ml-2"
                 title="Copy snippet"
               >
-                {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
 
@@ -344,12 +344,12 @@ export default function AluSimulator() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Main Result Card */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0c1222] to-[#070b16] border border-indigo-500/30 shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white dark:from-[#0c1222] dark:to-[#070b16] border border-slate-200 dark:border-indigo-500/30 shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/[0.08] mb-4">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   ALU Result Bus [7:0]
                 </span>
-                <span className="text-xs font-mono font-bold text-cyan-300">
+                <span className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-300">
                   OPCODE: {selectedOp.code}
                 </span>
               </div>
@@ -357,23 +357,23 @@ export default function AluSimulator() {
               {/* Huge Numbers */}
               <div className="flex items-baseline justify-between mb-4">
                 <div className="flex flex-col">
-                  <span className="text-4xl sm:text-5xl font-heading font-black text-white tracking-tight">
+                  <span className="text-4xl sm:text-5xl font-heading font-black text-slate-900 dark:text-white tracking-tight">
                     {result8bit}
                   </span>
-                  <span className="text-xs text-slate-400 font-mono mt-0.5">Decimal Value</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Decimal Value</span>
                 </div>
 
                 <div className="flex flex-col items-end">
-                  <span className="text-2xl sm:text-3xl font-mono font-bold text-cyan-300">
+                  <span className="text-2xl sm:text-3xl font-mono font-bold text-indigo-600 dark:text-cyan-300">
                     {toHex2(result8bit)}
                   </span>
-                  <span className="text-xs text-slate-400 font-mono mt-0.5">Hex Byte</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Hex Byte</span>
                 </div>
               </div>
 
               {/* 8-bit visual LED indicator strip */}
               <div>
-                <span className="text-[11px] font-mono text-slate-400 block mb-2">
+                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 block mb-2">
                   Binary Bits (MSB to LSB):
                 </span>
                 <div className="grid grid-cols-8 gap-1.5 text-center font-mono">
@@ -384,12 +384,12 @@ export default function AluSimulator() {
                         key={bitIdx}
                         className={`p-2 rounded-lg border text-xs font-bold transition-all duration-300 ${
                           isOne
-                            ? 'bg-cyan-500/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(6,182,212,0.4)]'
-                            : 'bg-white/[0.02] border-white/[0.06] text-slate-500'
+                            ? 'bg-cyan-500/20 border-cyan-500 dark:border-cyan-400 text-cyan-800 dark:text-cyan-200 shadow-sm dark:shadow-[0_0_12px_rgba(6,182,212,0.4)]'
+                            : 'bg-slate-100 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.06] text-slate-400 dark:text-slate-500'
                         }`}
                       >
                         <div>{bit}</div>
-                        <div className="text-[9px] text-slate-500 font-normal">b{7 - bitIdx}</div>
+                        <div className="text-[9px] text-slate-400 dark:text-slate-500 font-normal">b{7 - bitIdx}</div>
                       </div>
                     );
                   })}
@@ -399,7 +399,7 @@ export default function AluSimulator() {
 
             {/* Hardware Status Flags */}
             <div>
-              <span className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2.5">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2.5">
                 Hardware Status Flags
               </span>
               <div className="grid grid-cols-2 gap-2.5 text-xs font-mono">
@@ -408,15 +408,15 @@ export default function AluSimulator() {
                 <div
                   className={`p-3 rounded-xl border transition-all ${
                     flagC
-                      ? 'bg-amber-500/15 border-amber-400/60 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-                      : 'bg-white/[0.02] border-white/[0.06] text-slate-400'
+                      ? 'bg-amber-500/15 border-amber-500 dark:border-amber-400/60 text-amber-900 dark:text-amber-200 shadow-sm dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]'
+                      : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.06] text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-bold font-sans">Carry [C]</span>
-                    <span className={`w-2 h-2 rounded-full ${flagC ? 'bg-amber-400 shadow-[0_0_6px_#f59e0b]' : 'bg-slate-700'}`} />
+                    <span className={`w-2 h-2 rounded-full ${flagC ? 'bg-amber-500 dark:bg-amber-400 shadow-[0_0_6px_#f59e0b]' : 'bg-slate-300 dark:bg-slate-700'}`} />
                   </div>
-                  <span className="text-[10px] text-slate-400 block font-sans">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">
                     {flagC ? 'Active: Carry / Borrow' : 'Inactive'}
                   </span>
                 </div>
@@ -425,15 +425,15 @@ export default function AluSimulator() {
                 <div
                   className={`p-3 rounded-xl border transition-all ${
                     flagZ
-                      ? 'bg-emerald-500/15 border-emerald-400/60 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
-                      : 'bg-white/[0.02] border-white/[0.06] text-slate-400'
+                      ? 'bg-emerald-500/15 border-emerald-500 dark:border-emerald-400/60 text-emerald-900 dark:text-emerald-200 shadow-sm dark:shadow-[0_0_15px_rgba(16,185,129,0.2)]'
+                      : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.06] text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-bold font-sans">Zero [Z]</span>
-                    <span className={`w-2 h-2 rounded-full ${flagZ ? 'bg-emerald-400 shadow-[0_0_6px_#10b981]' : 'bg-slate-700'}`} />
+                    <span className={`w-2 h-2 rounded-full ${flagZ ? 'bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_6px_#10b981]' : 'bg-slate-300 dark:bg-slate-700'}`} />
                   </div>
-                  <span className="text-[10px] text-slate-400 block font-sans">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">
                     {flagZ ? 'Active: Result == 0' : 'Inactive'}
                   </span>
                 </div>
@@ -442,15 +442,15 @@ export default function AluSimulator() {
                 <div
                   className={`p-3 rounded-xl border transition-all ${
                     flagV
-                      ? 'bg-rose-500/15 border-rose-400/60 text-rose-200 shadow-[0_0_15px_rgba(244,63,94,0.2)]'
-                      : 'bg-white/[0.02] border-white/[0.06] text-slate-400'
+                      ? 'bg-rose-500/15 border-rose-500 dark:border-rose-400/60 text-rose-900 dark:text-rose-200 shadow-sm dark:shadow-[0_0_15px_rgba(244,63,94,0.2)]'
+                      : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.06] text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-bold font-sans">Overflow [V]</span>
-                    <span className={`w-2 h-2 rounded-full ${flagV ? 'bg-rose-400 shadow-[0_0_6px_#f43f5e]' : 'bg-slate-700'}`} />
+                    <span className={`w-2 h-2 rounded-full ${flagV ? 'bg-rose-500 dark:bg-rose-400 shadow-[0_0_6px_#f43f5e]' : 'bg-slate-300 dark:bg-slate-700'}`} />
                   </div>
-                  <span className="text-[10px] text-slate-400 block font-sans">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">
                     {flagV ? 'Active: Signed Overflow' : 'Inactive'}
                   </span>
                 </div>
@@ -459,15 +459,15 @@ export default function AluSimulator() {
                 <div
                   className={`p-3 rounded-xl border transition-all ${
                     flagN
-                      ? 'bg-violet-500/15 border-violet-400/60 text-violet-200 shadow-[0_0_15px_rgba(139,92,246,0.2)]'
-                      : 'bg-white/[0.02] border-white/[0.06] text-slate-400'
+                      ? 'bg-violet-500/15 border-violet-500 dark:border-violet-400/60 text-violet-900 dark:text-violet-200 shadow-sm dark:shadow-[0_0_15px_rgba(139,92,246,0.2)]'
+                      : 'bg-slate-50 dark:bg-white/[0.02] border-slate-200 dark:border-white/[0.06] text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-bold font-sans">Negative [N]</span>
-                    <span className={`w-2 h-2 rounded-full ${flagN ? 'bg-violet-400 shadow-[0_0_6px_#8b5cf6]' : 'bg-slate-700'}`} />
+                    <span className={`w-2 h-2 rounded-full ${flagN ? 'bg-violet-500 dark:bg-violet-400 shadow-[0_0_6px_#8b5cf6]' : 'bg-slate-300 dark:bg-slate-700'}`} />
                   </div>
-                  <span className="text-[10px] text-slate-400 block font-sans">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">
                     {flagN ? 'Active: Bit 7 == 1' : 'Inactive'}
                   </span>
                 </div>
@@ -480,19 +480,19 @@ export default function AluSimulator() {
         </div>
       ) : (
         /* Verilog Code Inspector Tab */
-        <div className="mt-8 p-6 rounded-2xl bg-[#050811] border border-white/[0.08] font-mono text-xs relative z-10">
-          <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.08]">
+        <div className="mt-8 p-6 rounded-2xl bg-slate-900 dark:bg-[#050811] text-slate-100 border border-slate-800 dark:border-white/[0.08] font-mono text-xs relative z-10 shadow-xl">
+          <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 dark:border-white/[0.08]">
             <span className="text-slate-400 font-sans">Complete RTL Module Snippet (Verilog HDL)</span>
             <button
               onClick={handleCopyCode}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-sans text-xs font-semibold"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-sans text-xs font-semibold shadow"
             >
               {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copiedCode ? 'Copied!' : 'Copy Code'}</span>
             </button>
           </div>
 
-          <pre className="text-slate-300 leading-relaxed overflow-x-auto p-4 rounded-xl bg-black/60 border border-white/[0.04]">
+          <pre className="text-slate-200 leading-relaxed overflow-x-auto p-4 rounded-xl bg-black/60 border border-white/[0.04]">
 {`module alu_8bit (
     input  wire [7:0] a,
     input  wire [7:0] b,
