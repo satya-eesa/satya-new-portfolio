@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle: string;
   description: string;
-  category: 'VLSI / RTL' | 'Robotics & Embedded';
+  category: 'VLSI / RTL' | 'Robotics & Embedded' | 'Modern Web' | 'DSA & Software' | string;
   status: string;
   highlights: string[];
   tags: string[];

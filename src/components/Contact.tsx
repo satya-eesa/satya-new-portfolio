@@ -67,10 +67,10 @@ export default function Contact() {
             <span>Connect &amp; Collaborate</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Let&apos;s Build the Future of <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Hardware</span>
+            Let&apos;s Build the Future of <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Compute &amp; Software</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Currently open to VLSI &amp; RTL design internships, research collaborations, hardware projects, and engineering discussions.
+            Open to hardware engineering (VLSI/RTL), software development, DSA problem solving, internships, and technical collaborations.
           </p>
         </div>
 

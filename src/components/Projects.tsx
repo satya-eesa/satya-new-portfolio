@@ -15,7 +15,8 @@ import {
   Radio,
   CheckCircle2,
   Sparkles,
-  Layers
+  Layers,
+  Globe
 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { projectsData } from '../data/portfolioData';
@@ -27,6 +28,7 @@ export default function Projects() {
 
   const aluProject = projectsData.find((p) => p.id === 'alu-8bit')!;
   const roverProject = projectsData.find((p) => p.id === 'agri-rover')!;
+  const webProject = projectsData.find((p) => p.id === 'web-silicon-lab')!;
 
   return (
     <section id="projects" className="relative py-20 sm:py-32 bg-slate-50/50 dark:bg-[#060912] transition-colors duration-300 overflow-hidden">
@@ -39,10 +41,10 @@ export default function Projects() {
             <span>Featured Engineering Work</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Flagship <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Hardware Projects</span>
+            Flagship <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Engineering Projects</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Real-world systems engineered from register transfer level RTL silicon up to autonomous edge field robotics.
+            Real-world systems engineered from register transfer level RTL silicon and autonomous robotics to interactive modern web applications.
           </p>
         </div>
 
@@ -359,6 +361,126 @@ export default function Projects() {
 
           </div>
 
+        </div>
+
+        {/* ========================================================
+            PROJECT 3: MODERN WEB & INTERACTIVE SIMULATION PLATFORM
+            ======================================================== */}
+        <div className="rounded-3xl glass-panel p-6 sm:p-10 mb-16 shadow-2xl glass-panel-hover">
+          
+          {/* Card Top Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/[0.08]">
+            <div>
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="px-3 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                  03 • MODERN WEB &amp; COMPUTATIONAL SYSTEMS
+                </span>
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+                  <span>Production Deployed</span>
+                </span>
+              </div>
+              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
+                {webProject.title}
+              </h3>
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">
+                {webProject.subtitle}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="#silicon-lab"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 text-white text-xs font-semibold shadow-lg shadow-indigo-500/20 hover:scale-[1.02] transition"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>Launch Interactive Lab</span>
+              </a>
+              <a
+                href={webProject.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/[0.06] transition"
+                aria-label="GitHub Repository"
+              >
+                <GithubIcon className="w-4 h-4 fill-current" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card Body */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-8">
+            {/* Left: Description & Highlights (7 Cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+                {webProject.description}
+              </p>
+
+              {/* Highlights */}
+              <div className="space-y-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono">
+                  Full-Stack Architecture &amp; Key Features:
+                </h4>
+                <ul className="space-y-2.5">
+                  {webProject.highlights.map((h, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                      <span className="p-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {webProject.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs font-mono rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-medium"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Modern Web Architecture Spec Matrix (5 Cols) */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl p-6 bg-slate-50 dark:bg-[#0a0e1c] border border-indigo-500/30 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-white/[0.08] text-xs">
+                  <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold font-heading">
+                    <Globe className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                    <span>SYSTEM ARCHITECTURE</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-semibold">
+                    100% HEALTH
+                  </span>
+                </div>
+
+                {/* Specs List */}
+                <div className="space-y-2.5">
+                  {webProject.specifications?.map((spec) => (
+                    <div
+                      key={spec.label}
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-xs"
+                    >
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">{spec.label}</span>
+                      <span className="font-mono text-slate-800 dark:text-slate-200 font-semibold text-right text-[11px]">
+                        {spec.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-slate-200 dark:border-white/[0.08] flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                  <span>Core Web Vitals</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">LCP 1.1s • 100/100</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

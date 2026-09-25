@@ -10,9 +10,9 @@ export const personalInfo = {
   title: 'Electronics & Communication Engineering Student',
   institution: 'Indian Institute of Information Technology, Sri City (IIIT Sri City)',
   location: 'Andhra Pradesh, India',
-  targetRole: 'VLSI / RTL Design Engineer',
-  tagline: 'Architecting High-Speed Digital Logic & Silicon Systems',
-  bio: 'Electronics & Communication Engineering undergraduate at IIIT Sri City with a dedicated focus on RTL Design, VLSI Architecture, and Embedded Systems. Passionate about transforming algorithmic specifications into robust, timing-closure-ready Verilog hardware modules, building autonomous robotics platforms, and preparing for next-generation semiconductor engineering.',
+  targetRole: 'Hardware, DSA & Software Engineer',
+  tagline: 'Bridging Digital Silicon, Algorithms & Modern Software',
+  bio: 'Electronics & Communication Engineering undergraduate at IIIT Sri City. Passionate about digital VLSI & RTL design, rigorous Data Structures & Algorithms (C++), and modern web software engineering. Driven by solving complex computational problems from gate-level hardware up to scalable web applications.',
   
   // Contact & Social Links (Update these anytime)
   email: 'satyaeesa@gmail.com',
@@ -25,13 +25,13 @@ export const personalInfo = {
   
   availableForInternship: true,
   interests: [
-    'VLSI Design',
-    'RTL Design',
-    'Digital System Architecture',
-    'Verilog & SystemVerilog',
-    'FPGA Prototyping',
+    'Digital VLSI & RTL Design',
+    'Data Structures & Algorithms (DSA)',
+    'Modern Web Development (Next.js / React / TypeScript)',
+    'Computer Architecture & Verilog HDL',
+    'C++ Systems & Algorithmic Problem Solving',
     'Embedded Systems & IoT',
-    'Autonomous Robotics'
+    'Full-Stack Architecture & Cloud UI'
   ]
 };
 
@@ -103,68 +103,97 @@ export const projectsData: Project[] = [
       { label: 'Communication', value: 'UART Inter-IC bus, HTTP/MQTT IoT Dashboard' },
       { label: 'Power System', value: 'Lithium-Ion Battery with Dual Step-Down Regulators' }
     ]
+  },
+  {
+    id: 'web-silicon-lab',
+    title: 'SiliconLab: Interactive RTL Simulator & Modern Web Platform',
+    subtitle: 'Full-Stack Engineering with Next.js 15, React 19 & TypeScript',
+    description:
+      'Engineered a modern web application and an in-browser interactive digital logic datapath simulator. Visualizes clock-cycle datapath transitions, 9 arithmetic and logic opcodes, and 4 hardware status flags with real-time reactive state evaluation, dual theme glassmorphism, and responsive accessibility.',
+    category: 'Modern Web',
+    status: 'Production Deployed',
+    highlights: [
+      'Interactive in-browser ALU simulator rendering live datapath stages (Adder, Logic, Shifter, Flags)',
+      'Dual-theme architecture (Obsidian Dark & Pearl Light) with zero-flicker hydration using next-themes',
+      'Modern glassmorphism UI built with Tailwind CSS, Framer Motion, and Lucide icons',
+      'High performance, accessible design with zero layout shift (LCP < 1.2s)'
+    ],
+    tags: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Web Architecture', 'UI/UX'],
+    githubUrl: 'https://github.com/satya-eesa',
+    specifications: [
+      { label: 'Framework', value: 'Next.js 15 (App Router) + React 19' },
+      { label: 'Language', value: 'TypeScript (Strict Mode)' },
+      { label: 'Styling', value: 'Tailwind CSS v3.4 + Glassmorphism' },
+      { label: 'Theme Engine', value: 'Dual Theme (Light & Dark System-Aware)' },
+      { label: 'Interactivity', value: 'Real-Time 8-bit Datapath Visualizer' },
+      { label: 'Deployment', value: 'Vercel Edge Network' }
+    ]
   }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'Hardware & RTL Design',
+    title: 'Digital VLSI & RTL Design',
     badge: 'Silicon Core',
     color: 'from-cyan-500 to-blue-600',
-    description: 'Digital logic design, structural datapaths, state machines, and microarchitecture.',
-    skills: [
-      { name: 'RTL Design', level: 'Core Focus' },
-      { name: 'Digital Electronics', level: 'Strong' },
-      { name: 'VLSI Concepts', level: 'Proficient' },
-      { name: 'Combinational & Sequential Logic', level: 'Strong' },
-      { name: 'FSM Architecture (Moore/Mealy)', level: 'Proficient' },
-      { name: 'Computer Organization & Architecture', level: 'Proficient' },
-      { name: 'ASIC Design Flow', level: 'Foundations' },
-      { name: 'FPGA Fundamentals', level: 'Learning' }
-    ]
-  },
-  {
-    title: 'HDL & EDA Simulation Tools',
-    badge: 'Synthesis & Sim',
-    color: 'from-violet-500 to-purple-600',
-    description: 'Hardware description languages and electronic design automation toolchains.',
+    description: 'Digital logic design, structural datapaths, finite state machines, and microarchitecture.',
     skills: [
       { name: 'Verilog HDL', level: 'Advanced' },
-      { name: 'SystemVerilog', level: 'Exploring' },
-      { name: 'Xilinx Vivado', level: 'Proficient' },
-      { name: 'Icarus Verilog (iverilog)', level: 'Proficient' },
-      { name: 'GTKWave', level: 'Proficient' },
-      { name: 'ModelSim', level: 'Familiar' },
-      { name: 'HDLBits Problem Solving', level: 'Active Practice' }
+      { name: 'RTL Microarchitecture', level: 'Core Focus' },
+      { name: 'Xilinx Vivado (Synthesis/Impl)', level: 'Proficient' },
+      { name: 'Icarus Verilog & GTKWave', level: 'Proficient' },
+      { name: 'Combinational & Sequential Logic', level: 'Strong' },
+      { name: 'FSM Architecture (Moore/Mealy)', level: 'Proficient' },
+      { name: 'Computer Organization & Arch', level: 'Proficient' },
+      { name: 'SystemVerilog & ASIC Flow', level: 'Foundations' }
     ]
   },
   {
-    title: 'Embedded Systems & Robotics',
-    badge: 'Physical Compute',
-    color: 'from-amber-500 to-orange-600',
-    description: 'Microcontroller programming, hardware-software integration, sensors, and robotics.',
+    title: 'Data Structures & Algorithms (DSA)',
+    badge: 'Algorithmic Logic',
+    color: 'from-emerald-500 to-teal-600',
+    description: 'Computational problem solving, algorithmic paradigms, memory management, and time-space optimization.',
     skills: [
-      { name: 'ESP32 Microcontroller', level: 'Proficient' },
+      { name: 'C++ / Modern C++', level: 'Strong' },
+      { name: 'Data Structures (Trees, Graphs, Heaps)', level: 'Strong' },
+      { name: 'Dynamic Programming', level: 'Proficient' },
+      { name: 'Recursion & Backtracking', level: 'Strong' },
+      { name: 'Asymptotic Complexity Analysis', level: 'Core Focus' },
+      { name: 'C++ Standard Template Library (STL)', level: 'Advanced' },
+      { name: 'Object-Oriented Programming (OOP)', level: 'Proficient' },
+      { name: 'Competitive Problem Solving', level: 'Active Practice' }
+    ]
+  },
+  {
+    title: 'Modern Web & Software Engineering',
+    badge: 'Full-Stack & UI',
+    color: 'from-indigo-500 to-violet-600',
+    description: 'Modern front-end & full-stack development, reactive architectures, and developer toolchains.',
+    skills: [
+      { name: 'Next.js 15 (App Router)', level: 'Proficient' },
+      { name: 'React 19 & Component Design', level: 'Proficient' },
+      { name: 'TypeScript', level: 'Strong' },
+      { name: 'Tailwind CSS & Modern UI', level: 'Advanced' },
+      { name: 'Framer Motion Animations', level: 'Proficient' },
+      { name: 'Responsive & Accessible Web', level: 'Strong' },
+      { name: 'Git & GitHub Workflows', level: 'Advanced' },
+      { name: 'REST APIs & Cloud Deployment', level: 'Familiar' }
+    ]
+  },
+  {
+    title: 'Embedded Systems & Physical Compute',
+    badge: 'IoT & Robotics',
+    color: 'from-amber-500 to-orange-600',
+    description: 'Microcontroller programming, hardware-software integration, sensors, and autonomous robotics.',
+    skills: [
+      { name: 'ESP32 & Dual-Core MCU', level: 'Proficient' },
       { name: 'Arduino Platform', level: 'Proficient' },
-      { name: 'Raspberry Pi', level: 'Proficient' },
-      { name: 'IoT Telemetry & Protocols', level: 'Proficient' },
+      { name: 'Raspberry Pi & Linux', level: 'Proficient' },
       { name: 'Serial Buses (UART, SPI, I2C)', level: 'Proficient' },
       { name: 'Sensor Interfacing & Actuators', level: 'Strong' },
-      { name: 'Autonomous Robotics', level: 'Hands-on' }
-    ]
-  },
-  {
-    title: 'Programming & Toolchain',
-    badge: 'Software Stack',
-    color: 'from-emerald-500 to-teal-600',
-    description: 'Systems programming, automation scripting, Linux environments, and version control.',
-    skills: [
-      { name: 'C Programming', level: 'Strong' },
-      { name: 'C++', level: 'Proficient' },
-      { name: 'Python', level: 'Proficient' },
-      { name: 'Linux / Bash Scripting', level: 'Proficient' },
-      { name: 'Git & GitHub Workflow', level: 'Strong' },
-      { name: 'VS Code Hardware Toolchains', level: 'Advanced' }
+      { name: 'Python Systems & Scripting', level: 'Proficient' },
+      { name: 'Edge Computer Vision & Telemetry', level: 'Hands-on' },
+      { name: 'Autonomous Rover Architecture', level: 'Hands-on' }
     ]
   }
 ];
@@ -271,13 +300,23 @@ export const achievementsData: AchievementItem[] = [
     color: 'from-pink-500 to-rose-400'
   },
   {
-    title: 'Semiconductor Engineering Vision',
-    subtitle: 'Aspiring VLSI / RTL Design Engineer',
+    title: 'Algorithmic Problem Solving & DSA',
+    subtitle: 'C++ Computational Rigor',
     description:
-      'Driven to contribute to modern ASIC and SoC architectures, low-power digital design, hardware accelerators, and silicon solutions.',
+      'Consistent practice solving complex algorithmic challenges across dynamic programming, graph theory, trees, and asymptotic runtime optimization in C++.',
+    badge: 'Computational Logic',
+    category: 'Engineering',
+    icon: 'Binary',
+    color: 'from-emerald-500 to-teal-400'
+  },
+  {
+    title: 'Silicon-to-Software Vision',
+    subtitle: 'Multi-Disciplinary Engineer',
+    description:
+      'Driven to engineer across the entire compute stack: digital silicon (VLSI/RTL), algorithmic problem solving (C++ DSA), and high-performance modern web platforms.',
     badge: 'Career Target',
     category: 'Vision',
     icon: 'Rocket',
-    color: 'from-orange-500 to-red-400'
+    color: 'from-indigo-500 to-purple-400'
   }
 ];

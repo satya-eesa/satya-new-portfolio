@@ -26,7 +26,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mt-1 font-normal leading-relaxed">
-              Electronics &amp; Communication Engineering Undergraduate at IIIT Sri City. Focused on digital RTL architecture, FPGA synthesis, and intelligent embedded systems.
+              Electronics &amp; Communication Engineering undergraduate at IIIT Sri City. Engineering across digital silicon (VLSI &amp; RTL), C++ Data Structures &amp; Algorithms, and modern web platforms.
             </p>
           </div>
 

@@ -24,10 +24,10 @@ export default function About() {
             <span>Engineer Profile</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Architecting Silicon from <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Registers to Robotics</span>
+            Engineering from Silicon &amp; <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Algorithms to Modern Web</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Passionate hardware engineer shaping digital logic from registers to physical silicon systems at IIIT Sri City.
+            A multi-disciplinary engineer connecting digital VLSI hardware, computational Data Structures &amp; Algorithms in C++, and modern full-stack web platforms at IIIT Sri City.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">The Engineering Journey</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">From register transfer level to edge intelligence</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">From silicon gates &amp; algorithms to scalable web systems</p>
                 </div>
               </div>
 
@@ -51,10 +51,10 @@ export default function About() {
                 <p>
                   I am an Electronics &amp; Communication Engineering undergraduate at the{' '}
                   <strong className="text-slate-900 dark:text-white font-semibold">Indian Institute of Information Technology, Sri City (IIIT Sri City)</strong>.
-                  My engineering journey is founded on the conviction that the most transformative technological breakthroughs happen at the physical compute layer—through clean microarchitectures, deterministic timing closure, and synthesizable RTL design.
+                  My philosophy bridges the physical and virtual compute planes: understanding how hardware actually computes at the silicon register layer, how algorithms optimize memory and runtime complexity in C++, and how modern web systems deliver intuitive, responsive digital experiences.
                 </p>
                 <p>
-                  Whether designing an 8-bit Arithmetic Logic Unit from scratch in Verilog HDL or architecting an autonomous agricultural field rover with real-time edge computer vision, I thrive on tackling real-world engineering trade-offs: latency, resource utilization, power efficiency, and self-checking testbench verification.
+                  Whether engineering an 8-bit Arithmetic Logic Unit in synthesizable Verilog HDL, solving complex algorithmic graph and dynamic programming challenges, or building modern interactive web applications with Next.js and TypeScript, I thrive at the intersections of speed, precision, and architectural elegance.
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function About() {
             <div className="pt-6 mt-6 border-t border-slate-200 dark:border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 font-mono">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
-                <span>Focus: VLSI Front-End • RTL Microarchitecture</span>
+                <span>Triad: Digital RTL • C++ DSA • Next.js &amp; TS</span>
               </div>
               <a
                 href="#silicon-lab"
@@ -119,19 +119,29 @@ export default function About() {
                 <div className="p-2 w-fit rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 mb-3">
                   <Cpu className="w-4 h-4" />
                 </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Digital RTL Design</h5>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Digital RTL &amp; Silicon</h5>
                 <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   Synthesizable Verilog HDL, datapath architecture, control unit FSMs, and register-level logic.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] hover:border-cyan-400/40 transition">
-                <div className="p-2 w-fit rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 mb-3">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] hover:border-emerald-400/40 transition">
+                <div className="p-2 w-fit rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
                   <Terminal className="w-4 h-4" />
                 </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">EDA &amp; Verification</h5>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Algorithms &amp; DSA (C++)</h5>
                 <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Waveform debugging in GTKWave, logic synthesis in Xilinx Vivado, and self-checking testbenches.
+                  Data structures, graph algorithms, dynamic programming, and asymptotic runtime optimization.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] hover:border-cyan-400/40 transition">
+                <div className="p-2 w-fit rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 mb-3">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Modern Web Architecture</h5>
+                <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Next.js 15, React 19, TypeScript, responsive Tailwind interfaces, and interactive web tools.
                 </p>
               </div>
 
@@ -139,19 +149,9 @@ export default function About() {
                 <div className="p-2 w-fit rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 mb-3">
                   <Bot className="w-4 h-4" />
                 </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Edge Robotics &amp; IoT</h5>
+                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Edge Systems &amp; IoT</h5>
                 <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Dual-tier computing hierarchy: Raspberry Pi for Edge CV combined with ESP32 for deterministic motor control.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] hover:border-emerald-400/40 transition">
-                <div className="p-2 w-fit rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <h5 className="font-heading font-bold text-sm text-slate-900 dark:text-white">Hardware-Software Links</h5>
-                <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  C/C++ firmware, UART/I2C/SPI protocols, Linux driver interfaces, and Python telemetry pipelines.
+                  Dual-tier computing: Raspberry Pi edge computer vision combined with ESP32 deterministic control.
                 </p>
               </div>
             </div>

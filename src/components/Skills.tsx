@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import {
   Cpu,
   Layers,
-  Sparkles
+  Sparkles,
+  Binary,
+  Bot
 } from 'lucide-react';
 import { skillCategories } from '../data/portfolioData';
 
@@ -18,6 +20,19 @@ export default function Skills() {
       ? skillCategories
       : skillCategories.filter((c) => c.title === selectedCategory);
 
+  const getCategoryIcon = (title: string) => {
+    if (title.includes('VLSI') || title.includes('RTL') || title.includes('Hardware')) {
+      return <Cpu className="w-5 h-5" />;
+    }
+    if (title.includes('Algorithms') || title.includes('DSA')) {
+      return <Binary className="w-5 h-5" />;
+    }
+    if (title.includes('Web') || title.includes('Software')) {
+      return <Layers className="w-5 h-5" />;
+    }
+    return <Bot className="w-5 h-5" />;
+  };
+
   return (
     <section id="skills" className="relative py-20 sm:py-32 bg-slate-100/40 dark:bg-[#070a12]/90 transition-colors duration-300 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
@@ -29,10 +44,10 @@ export default function Skills() {
             <span>Technical Arsenal</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Specialized in <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Digital Hardware</span> &amp; Systems
+            Specialized Across <span className="bg-gradient-to-r from-indigo-600 via-sky-600 to-cyan-600 dark:from-indigo-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent">Silicon, Algorithms &amp; Web</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            A comprehensive matrix of digital design methodologies, EDA simulation platforms, firmware toolchains, and programming environments.
+            A multi-disciplinary skill stack connecting gate-level digital hardware, high-efficiency algorithmic problem solving in C++, modern full-stack web platforms, and embedded systems.
           </p>
 
           {/* Category Filter Pills */}
@@ -62,7 +77,7 @@ export default function Skills() {
             >
               <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-200 dark:border-white/[0.08]">
                 <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400">
-                  <Cpu className="w-5 h-5" />
+                  {getCategoryIcon(category.title)}
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-lg text-slate-900 dark:text-white">
@@ -96,30 +111,30 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* RTL to Silicon Pipeline */}
+        {/* Silicon to Software Pipeline */}
         <div className="rounded-3xl glass-panel p-6 sm:p-10 shadow-xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-white/[0.08]">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400 mb-1">
                 <Layers className="w-4 h-4" />
-                <span>RTL Design Methodology</span>
+                <span>Multi-Tier Architecture</span>
               </div>
               <h4 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 dark:text-white">
-                Register Transfer Level to Silicon Flow
+                The Silicon-to-Software Engineering Flow
               </h4>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
-              Standard methodology followed for deterministic hardware validation and timing closure.
+              Integrated methodology spanning gate-level digital hardware, algorithmic logic, and modern web platforms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {[
-              { step: '01', title: 'Architecture Spec', desc: 'Datapath, registers, FSM diagrams & bit-width specs' },
-              { step: '02', title: 'RTL Modeling', desc: 'Synthesizable Verilog HDL / SystemVerilog modules' },
-              { step: '03', title: 'Verification', desc: 'Self-checking testbenches in Icarus Verilog & GTKWave' },
-              { step: '04', title: 'Synthesis & Timing', desc: 'Logic synthesis & LUT utilization mapping in Vivado' },
-              { step: '05', title: 'Hardware Test', desc: 'FPGA bitstream programming and I/O validation' },
+              { step: '01', title: 'Silicon & RTL', desc: 'Datapath architecture, finite state machines & Verilog HDL' },
+              { step: '02', title: 'Algorithmic Rigor', desc: 'Data Structures & Algorithms, C++ STL & asymptotic optimization' },
+              { step: '03', title: 'Embedded Systems', desc: 'Dual-core MCU firmware, sensor buses & real-time actuation' },
+              { step: '04', title: 'Modern Web Core', desc: 'Next.js 15, React 19, TypeScript & responsive interfaces' },
+              { step: '05', title: 'Interactive Platforms', desc: 'In-browser hardware simulation, telemetry & deployed systems' },
             ].map((p, idx) => (
               <div
                 key={p.step}
